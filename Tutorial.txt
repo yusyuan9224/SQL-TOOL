@@ -1,0 +1,8 @@
+第一次使用時:
+將"oracle.rar"解壓縮至 C:\
+把資料夾內"instantclient_23_4","META-INF"兩個資料夾路徑加到系統環境變數Path
+重開機
+
+例如:
+C:\oracle\instantclient-basic-windows.x64-23.4.0.24.05\instantclient_23_4
+C:\oracle\instantclient-basic-windows.x64-23.4.0.24.05\META-INF
