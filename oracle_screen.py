@@ -133,7 +133,8 @@ class OracleScreen:
         if self.sql_login.connection is not None:
             self.sql_login.connection.close()
             self.sql_login.connection = None
-        
+            print ("close connect")
+
         self.frame.pack_forget()
         self.login_app.show_login_screen()
 
