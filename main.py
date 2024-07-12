@@ -12,10 +12,10 @@ class LoginApp:
     def __init__(self, root):
         self.root = root
         self.root.title("SQL Login")
-        self.root.geometry("500x550")  # 设置初始窗口大小
-        self.root.minsize(500, 550)  # 设置最小窗口大小
+        self.root.geometry("500x550")  # 設定初始窗口大小
+        self.root.minsize(500, 550)  # 設定最小窗口大小
 
-        self.sql_login = SQLLogin()  # Add this line to create SQLLogin instance
+        self.sql_login = SQLLogin()  # 創建 SQLLogin 實例
         self.frame = tk.Frame(root)
         self.frame.pack(fill=tk.BOTH, expand=True)
 
@@ -34,7 +34,7 @@ class LoginApp:
         self.label_server_type = tk.Label(self.frame, text="Server Type:")
         self.label_server_type.grid(row=0, column=0, padx=10, pady=5, sticky="w")
         self.server_type_var = tk.StringVar(self.frame)
-        self.server_type_var.set("MS SQL Server")  # 默认选择
+        self.server_type_var.set("MS SQL Server")  # 默認選擇
         self.server_type_menu = tk.OptionMenu(self.frame, self.server_type_var, "MS SQL Server", "Oracle", command=self.update_form)
         self.server_type_menu.grid(row=0, column=1, padx=10, pady=5, sticky="ew")
 
@@ -170,25 +170,20 @@ class LoginApp:
                 else:
                     self.clear_login_info(host)
 
-                self.sql_login = SQLLogin()
-
                 self.update_progress(10)
-                time.sleep(0.5)  # Simulate progress
+                time.sleep(0.5)  # 模擬進度
 
                 connection_successful = False
                 try:
                     self.update_progress(30)
-                    time.sleep(0.5)  # Simulate progress
+                    time.sleep(0.5)  # 模擬進度
                     self.sql_login.connect_mssql(host, database, username, password, trust_certificate)
                     connection_successful = True
                 except Exception as e:
                     messagebox.showerror("Connection Error", f"Failed to connect to {server_type}: {e}")
 
                 self.update_progress(100)
-                time.sleep(0.5)  # Simulate progress
-
-                self.sql_login.close_connection()
-                self.update_progress(0)
+                time.sleep(0.5)  # 模擬進度
 
                 if connection_successful:
                     self.show_mssql_screen()
@@ -209,19 +204,19 @@ class LoginApp:
                     self.clear_login_info(host)
 
                 self.update_progress(10)
-                time.sleep(0.5)  # Simulate progress
+                time.sleep(0.5)  # 模擬進度
 
                 connection_successful = False
                 try:
                     self.update_progress(30)
-                    time.sleep(0.5)  # Simulate progress
+                    time.sleep(0.5)  # 模擬進度
                     self.sql_login.connect_oracle(host, port, service_name, username, password, use_sid)
                     connection_successful = True
                 except Exception as e:
                     messagebox.showerror("Connection Error", f"Failed to connect to {server_type}: {e}")
 
                 self.update_progress(100)
-                time.sleep(0.5)  # Simulate progress
+                time.sleep(0.5)  # 模擬進度
 
                 if connection_successful:
                     self.show_oracle_screen()
@@ -305,7 +300,7 @@ class LoginApp:
             server_type = user_info["server_type"]
             self.server_type_var.set(server_type)
             self.update_form()
-            self.entry_host.delete(0, tk.END)  # Move this line here
+            self.entry_host.delete(0, tk.END)  # 移動這行到這裡
             self.entry_host.insert(0, user_info["host"])
             if server_type == "MS SQL Server":
                 self.entry_database.delete(0, tk.END)
@@ -340,7 +335,7 @@ class LoginApp:
         self.frame.pack_forget()
         OracleScreen(self.root, self)
 
-# Create the main window
+# 創建主窗口
 root = tk.Tk()
 app = LoginApp(root)
 root.mainloop()

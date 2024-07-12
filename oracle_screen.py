@@ -142,4 +142,5 @@ class OracleScreen:
         if self.sql_login.connection is not None:
             self.sql_login.connection.close()
             self.sql_login.connection = None
+            print ("close connect")
         self.root.destroy()
