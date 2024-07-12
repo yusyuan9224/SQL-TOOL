@@ -1,4 +1,4 @@
-### SQL Tool ver 1.0
+### SQL Tool ver 1.0.1
 
 此版本包含 SQL 工具的初始版本，設計用於執行和管理 MS SQL Server 和 Oracle 數據庫的 SQL 查詢。以下是此版本包含的功能和特性。
 
